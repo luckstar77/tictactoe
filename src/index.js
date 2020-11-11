@@ -2,7 +2,7 @@
  * @Description: 文件说明
  * @Author: wangbin
  * @Date: 2020-11-11 15:12:57
- * @LastEditTime: 2020-11-11 18:47:51
+ * @LastEditTime: 2020-11-11 21:01:34
  * @LastEditors: wangbin
  * @FilePath: \my-app\src\index.js
  */
@@ -160,7 +160,8 @@ class Game extends React.Component {
         alert('当前是最后一步')
       } else {
         this.setState({
-          stepNumber: num + 1
+          stepNumber: num + 1,
+          xIsNext: ((num + 1) % 2) === 0
         })
       }
     } else {
@@ -168,7 +169,8 @@ class Game extends React.Component {
         alert('当前是第一步')
       } else {
         this.setState({
-          stepNumber: num - 1
+          stepNumber: num - 1,
+          xIsNext: ((num - 1) % 2) === 0
         })
       }
     }

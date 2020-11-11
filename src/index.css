@@ -44,11 +44,6 @@ ol, ul {
   display: flex;
   flex-direction: row;
 }
-
-.game-info {
-  margin-left: 20px;
-  margin-right: 20px;
-}
 .content-span{
   display: inline-block;
   width: 80px;;
@@ -57,13 +52,29 @@ ol, ul {
   color:#ff6600;
   font-weight: 600;
 }
+
+.game-board-button{
+  margin-top: 5px;
+  margin-right: 5px;
+}
 .game-board{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  width: 30%;
 }
-.game-board-button{
-  margin-top: 5px;
-  margin-right: 5px;
+.game-info {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 30%;
+}
+.game-step{
+  width: 30%;
+}
+.title{
+  text-align: center;
+}
+.hidding{
+  display: none;
 }

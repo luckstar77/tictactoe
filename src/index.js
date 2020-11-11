@@ -2,7 +2,7 @@
  * @Description: 文件说明
  * @Author: wangbin
  * @Date: 2020-11-11 15:12:57
- * @LastEditTime: 2020-11-11 18:32:08
+ * @LastEditTime: 2020-11-11 18:47:51
  * @LastEditors: wangbin
  * @FilePath: \my-app\src\index.js
  */
@@ -26,6 +26,7 @@ class Board extends React.Component {
     }
     return (
       <Square
+        key={i}
         isColor={isColor}
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
@@ -220,9 +221,12 @@ class Game extends React.Component {
     }
 
     const moves = history.map((step, move) => {
+      if (!move) {
+        return
+      }
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        '返回第' + move + '步' :
+        '返回一开始';
       return (
         <li key={move} className={move === this.state.stepNumber ? 'moveClick' : ''}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -239,10 +243,13 @@ class Game extends React.Component {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
 
+
     return (
       <div>
+
         <div className="game">
           <div className="game-board">
+            <h2 className="title">{status}</h2>
             <Board
               arr={arr}
               squares={current.squares}
@@ -253,11 +260,10 @@ class Game extends React.Component {
               <button onClick={() => this.jumpToBegin()} className='game-board-button'>重新开始</button></div>
           </div>
           <div className="game-info">
-            <div>{status}</div>
             <ol>{moves}</ol>
 
           </div>
-          <div><span>落子详情:</span>
+          <div className={this.state.stepNumber === 0 ? 'game-step hidding' : 'game-step'}><span>落子详情:</span>
             {this.rederContent()}</div>
         </div>
 

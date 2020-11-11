@@ -47,4 +47,23 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
+  margin-right: 20px;
+}
+.content-span{
+  display: inline-block;
+  width: 80px;;
+}
+.moveClick{
+  color:#ff6600;
+  font-weight: 600;
+}
+.game-board{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.game-board-button{
+  margin-top: 5px;
+  margin-right: 5px;
 }
